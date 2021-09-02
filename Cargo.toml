@@ -4,6 +4,7 @@ version = "0.1.0"
 edition = "2018"
 license = "MIT"
 description = "Small and opinionated Rust web service deployment helper."
+repository="https://github.com/alianse777/deploy-rs.git"
 
 [dependencies]
 anyhow = "1.0.43"
