@@ -1,0 +1,16 @@
+[package]
+name = "deploy-rs"
+version = "0.1.0"
+edition = "2018"
+license = "MIT"
+description = "Small and opinionated Rust web service deployment helper."
+
+[dependencies]
+anyhow = "1.0.43"
+cargo_toml = "0.9.2"
+cmd_lib = "1.1.0"
+log = "0.4.14"
+rpassword = "5.0.1"
+simple_logger = "1.13.0"
+ssh2 = "0.9.1"
+structopt = "0.3.22"
