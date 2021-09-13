@@ -21,6 +21,7 @@ impl CrateInfo {
     }
 
     pub fn cargo_target(&self) -> String {
+        // TODO: better detection
         if let Ok(t) = env::var("CARGO_TARGET_DIR") {
             return t;
         }
