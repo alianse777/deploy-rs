@@ -1,6 +1,6 @@
 use anyhow::Result;
 use cargo_toml::{Manifest, Package};
-use std::path::Path;
+use std::{env, path::Path};
 
 pub struct CrateInfo {
     pub package: Package,
@@ -18,5 +18,15 @@ impl CrateInfo {
 
     pub fn crate_name(&self) -> &str {
         &self.package.name
+    }
+
+    pub fn cargo_target(&self) -> String {
+        if let Ok(t) = env::var("CARGO_TARGET_DIR") {
+            return t;
+        }
+        if Path::new("/opt/cargo/target").is_dir() {
+            return "/opt/cargo/target".to_owned();
+        }
+        return "./target".to_owned();
     }
 }

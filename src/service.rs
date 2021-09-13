@@ -105,12 +105,14 @@ pub fn push_executable(crateinfo: &CrateInfo, ssh: &Ssh, opt: &Opt) -> Result<()
     let remote = get_executable_path(crateinfo, opt);
     let local = if opt.musl {
         format!(
-            "/opt/cargo/target/x86_64-unknown-linux-musl/release/{}",
+            "{}/x86_64-unknown-linux-musl/release/{}",
+            crateinfo.cargo_target(),
             crateinfo.crate_name()
         )
     } else {
         format!(
-            "/opt/cargo/target/x86_64-unknown-linux-gnu/release/{}",
+            "{}/x86_64-unknown-linux-gnu/release/{}",
+            crateinfo.cargo_target(),
             crateinfo.crate_name()
         )
     };
