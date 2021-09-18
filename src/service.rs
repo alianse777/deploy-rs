@@ -41,6 +41,8 @@ After=syslog.target network.target
 ExecStart={exec_cmd}
 WorkingDirectory={pwd}
 Environment="{env}"
+Restart=always
+RestartSec=5
 
 [Install]
 WantedBy=multi-user.target"#,
